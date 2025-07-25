@@ -36,24 +36,16 @@ if (!process.env.NEXT_PUBLIC_SENTRY_DISABLED) {
   });
 }
 
-// Upload a larger set of source maps for prettier stack traces (increases build time)
-const widenClientFileUpload = true;
 
-// Upload a larger set of source maps for prettier stack traces (increases build time)
-const reactComponentAnnotation = {
-  enabled: true,
-};
-
-// Route browser requests to Sentry through a Next.js rewrite to circumvent ad‑blockers.
-// This can increase your server load as well as your hosting bill.
-// Note: Check that the configured route will not match with your Next.js middleware, otherwise reporting of client‑side errors will fail.
-const tunnelRoute = '/monitoring';
-
-// Automatically tree‑shake Sentry logger statements to reduce bundle size
-const disableLogger = true;
-
-// Disable Sentry telemetry
-const telemetry = false;
+/*
+ * The following constants were part of Sentry's advanced configuration, which can
+ * include options such as widening client file upload, enabling React component
+ * annotations, configuring a tunnel route, disabling logger statements, and
+ * disabling telemetry. These declarations were unused in this configuration and
+ * triggered TypeScript errors (unused variables). If you need to enable these
+ * features in the future, integrate them within the Sentry plugin configuration
+ * instead of declaring standalone variables here.
+ */
 
 const nextConfig = configWithPlugins;
 export default nextConfig;
